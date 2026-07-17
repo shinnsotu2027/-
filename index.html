@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Academy 新卒説明会</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================
+       TOP
+  ====================== -->
+  <section class="hero">
+    <h1>Human Academy<br>新卒説明会</h1>
+    <p>まずは会社説明動画をご覧ください。<br>視聴完了後、事業部選択へ進めます。</p>
+  </section>
+
+  <!-- ======================
+       会社説明動画
+  ====================== -->
+  <section class="container">
+    <h2 class="section-title">会社説明動画</h2>
+    <div class="video-box">
+      <!-- 【変更点】<video>タグを消して、YouTube用のエリアを用意しました -->
+      <div id="company-video-player"></div>
+    </div>
+  </section>
+
+  <!-- ======================
+       視聴完了
+  ====================== -->
+  <section id="next-section" class="container">
+    <div class="next-box">
+      <h2>視聴ありがとうございました</h2>
+      <p>下記より事業部選択へお進みください</p>
+      <button onclick="showDepartments()">事業部選択へ進む</button>
+    </div>
+  </section>
+
+  <!-- ======================
+       事業部選択
+  ====================== -->
+  <section id="department-section" class="container">
+    <h2 class="section-title">気になる事業部を選択してください</h2>
+    <div class="department-grid">
+      <!-- 【変更点】onclickの中に、それぞれのYouTube動画IDを入れます -->
+      <!-- 先ほど確認した「eK4KAu_7ylo」を試しに児童教育に入れています。他の事業部もIDが決まったら書き換えてください -->
+      <div class="card" onclick="changeVideo('eK4KAu_7ylo')">児童教育</div>
+      <div class="card" onclick="changeVideo('ここに学生教育の動画IDを入れる')">学生教育</div>
+      <div class="card" onclick="changeVideo('ここに社会人教育の動画IDを入れる')">社会人教育</div>
+      <div class="card" onclick="changeVideo('ここに国際教育の動画IDを入れる')">国際教育</div>
+      <div class="card" onclick="changeVideo('ここにビジネス教育の動画IDを入れる')">ビジネス教育</div>
+      <div class="card all-card" onclick="changeVideo('ここに全部見る動画のIDを入れる')">全部の事業部を見る</div>
+    </div>
+  </section>
+
+  <!-- ======================
+       事業部動画
+  ====================== -->
+  <section id="department-video-section" class="container">
+    <h2 class="section-title">事業部紹介動画</h2>
+    <div class="video-box">
+      <!-- 【変更点】<video>タグを消して、事業部YouTube用のエリアを用意しました -->
+      <div id="department-video-player"></div>
+    </div>
+  </section>
+
+  <!-- ======================
+       Googleフォーム
+  ====================== -->
+  <section id="survey-section" class="container">
+    <div class="survey-box">
+      <h2>アンケート回答</h2>
+      <p>説明会のご視聴ありがとうございました。<br>下記ボタンよりアンケート回答へお進みください。</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc204XQuBdN0Csn6dvl4i9wOn5-xq3uDF-CGYsf2718t_RUng/viewform?usp=header" target="_blank" class="form-button">
+        アンケート回答へ進む
+      </a>
+    </div> 
+  </section> 
+
+  <script src="script.js"></script> 
+</body>
+</html>

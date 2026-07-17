@@ -1,0 +1,121 @@
+/* ==========================================
+   最初は隠しておくセクション（必須）
+========================================== */
+#next-section,
+#department-section,
+#department-video-section,
+#survey-section {
+  display: none;
+}
+
+/* ==========================================
+   全体の基本デザイン
+========================================== */
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* ヒーローエリア（一番上） */
+.hero {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* ==========================================
+   動画・ボックスエリア
+========================================== */
+.video-box {
+  background: black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.next-box, .survey-box {
+  text-align: center;
+  background: white;
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   ボタン・カードデザイン
+========================================== */
+button, .form-button {
+  display: inline-block;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button:hover, .form-button:hover {
+  background-color: #c0392b;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  background: #3498db;
+  color: white;
+}
+
+.all-card {
+  background: #ecf0f1;
+  border-color: #95a5a6;
+  color: #7f8c8d;
+}
+
+.all-card:hover {
+  background: #95a5a6;
+  color: white;
+}
