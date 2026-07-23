@@ -1,77 +1,81 @@
-// ==========================================
-// 1. YouTube APIの準備
-// ==========================================
+// YouTube IFrame Player API の読み込み
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var companyPlayer;
-var departmentPlayer;
+let companyPlayer;
+let departmentPlayer;
 
-// ==========================================
-// 2. YouTubeプレーヤーの作成（API読み込み後に自動実行）
-// ==========================================
+// API準備完了時に呼ばれる関数
 function onYouTubeIframeAPIReady() {
-  // ① 会社説明動画のプレーヤー
+  // 1. 会社説明動画プレイヤーの初期化
   companyPlayer = new YT.Player('company-video-player', {
-    height: '315',
-    width: '100%',
-    // ★いただいたショート動画のIDをセットしました！★
-    videoId: 'a5O5oZILdeM', 
-    playerVars: {
-      'rel': 0,
-      'modestbranding': 1,
-      'playsinline': 1
-    },
+    height: '360',
+    width: '640',
+    videoId: 'ここに会社説明の動画IDを入れる', // ※初期動画のIDを入れてください
     events: {
-      // 再生状態が変わるたびにチェックする
-      'onStateChange': onCompanyPlayerStateChange
-    }
-  });
-
-  // ② 事業部動画のプレーヤー（最初は空っぽで待機）
-  departmentPlayer = new YT.Player('department-video-player', {
-    height: '315',
-    width: '100%',
-    videoId: '', 
-    playerVars: {
-      'rel': 0,
-      'modestbranding': 1,
-      'playsinline': 1
+      'onStateChange': onCompanyVideoStateChange
     }
   });
 }
 
-// ==========================================
-// 3. 動画を見終わったときの処理
-// ==========================================
-function onCompanyPlayerStateChange(event) {
+// 会社説明動画の状態変化を監視
+function onCompanyVideoStateChange(event) {
   // 動画が最後まで再生されたら（ENDED）
-  if (event.data == YT.PlayerState.ENDED) {
-    document.getElementById('next-section').style.display = 'block';
+  if (event.data === YT.PlayerState.ENDED) {
+    const nextSection = document.getElementById('next-section');
+    if (nextSection) {
+      nextSection.style.display = 'block';
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
 
-// ==========================================
-// 4. 「事業部選択へ進む」ボタンを押したときの処理
-// ==========================================
+// 「事業部選択へ進む」ボタンをクリックした時
 function showDepartments() {
-  document.getElementById('department-section').style.display = 'block';
-  document.getElementById('department-section').scrollIntoView({ behavior: 'smooth' });
+  const deptSection = document.getElementById('department-section');
+  if (deptSection) {
+    deptSection.style.display = 'block';
+    deptSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-// ==========================================
-// 5. 事業部カードを押したときの動画切り替え処理
-// ==========================================
+// カードをクリックした時に事業部動画を読み込んで再生する
 function changeVideo(videoId) {
-  document.getElementById('department-video-section').style.display = 'block';
-  document.getElementById('survey-section').style.display = 'block';
+  const videoSection = document.getElementById('department-video-section');
   
-  // 指定されたIDのYouTube動画を読み込んで自動再生する
-  if(departmentPlayer) {
+  // セクションを表示
+  if (videoSection) {
+    videoSection.style.display = 'block';
+    videoSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // プレイヤーが未作成の場合は作成、作成済みの場合は動画を変更
+  if (!departmentPlayer) {
+    departmentPlayer = new YT.Player('department-video-player', {
+      height: '360',
+      width: '640',
+      videoId: videoId,
+      playerVars: {
+        'autoplay': 1 // カード選択時に自動再生
+      },
+      events: {
+        'onStateChange': onDepartmentVideoStateChange
+      }
+    });
+  } else {
     departmentPlayer.loadVideoById(videoId);
   }
-  
-  document.getElementById('department-video-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ★ ここがポイント：事業部動画が最後まで再生された時の処理
+function onDepartmentVideoStateChange(event) {
+  if (event.data === YT.PlayerState.ENDED) {
+    const surveySection = document.getElementById('survey-section');
+    if (surveySection) {
+      surveySection.style.display = 'block'; // アンケートを表示
+      surveySection.scrollIntoView({ behavior: 'smooth' }); // アンケートへ自動スクロール
+    }
+  }
 }
