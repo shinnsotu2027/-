@@ -18,7 +18,7 @@ function onYouTubeIframeAPIReady() {
     height: '315',
     width: '100%',
     // ★いただいたショート動画のIDをセットしました！★
-    videoId: 'eK4KAu_7ylo', 
+    videoId: 'a5O5oZILdeM', 
     playerVars: {
       'rel': 0,
       'modestbranding': 1,
