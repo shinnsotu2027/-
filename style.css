@@ -1,6 +1,23 @@
-/* ==========================================
-   最初は隠しておくセクション（必須）
-========================================== */
+/* 基本設定 */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ★ポイント：最初は隠しておくエリア */
 #next-section,
 #department-section,
 #department-video-section,
@@ -8,114 +25,74 @@
   display: none;
 }
 
-/* ==========================================
-   全体の基本デザイン
-========================================== */
-body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 30px;
-  color: #2c3e50;
-}
-
-/* ヒーローエリア（一番上） */
+/* ヒーローエリア */
 .hero {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-/* ==========================================
-   動画・ボックスエリア
-========================================== */
-.video-box {
-  background: black;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.next-box, .survey-box {
-  text-align: center;
-  background: white;
+  background: #005bac;
+  color: #fff;
   padding: 40px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* ==========================================
-   ボタン・カードデザイン
-========================================== */
-button, .form-button {
-  display: inline-block;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-top: 20px;
-  transition: background-color 0.3s;
+/* ★ポイント：YouTube埋め込みサイズ自動調整（16:9） */
+.video-box {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-button:hover, .form-button:hover {
-  background-color: #c0392b;
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9比率 */
+  height: 0;
+  background: #000;
 }
 
+.iframe-wrapper iframe,
+.iframe-wrapper div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* カードグリッド */
 .department-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
+  margin-top: 20px;
 }
 
 .card {
-  background: white;
-  border: 2px solid #3498db;
-  color: #3498db;
+  background: #eef5ff;
+  border: 2px solid #005bac;
   padding: 20px;
-  text-align: center;
+  border-radius: 6px;
   font-weight: bold;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: 0.2s;
 }
 
 .card:hover {
-  background: #3498db;
-  color: white;
+  background: #005bac;
+  color: #fff;
 }
 
-.all-card {
-  background: #ecf0f1;
-  border-color: #95a5a6;
-  color: #7f8c8d;
+/* ボタンとリンク */
+button, .form-button {
+  display: inline-block;
+  background: #ff6b00;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
-.all-card:hover {
-  background: #95a5a6;
-  color: white;
+button:hover, .form-button:hover {
+  opacity: 0.8;
 }

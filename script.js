@@ -1,81 +1,65 @@
-// YouTube IFrame Player API の読み込み
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 let companyPlayer;
 let departmentPlayer;
 
-// API準備完了時に呼ばれる関数
+// YouTube API の準備完了時に発火
 function onYouTubeIframeAPIReady() {
-  // 1. 会社説明動画プレイヤーの初期化
   companyPlayer = new YT.Player('company-video-player', {
-    height: '360',
-    width: '640',
-    videoId: 'a5O5oZILdeM', // ※初期動画のIDを入れてください
+    videoId: 'a5O5oZILdeM', // ★会社説明のYouTube動画ID
+    playerVars: {
+      'origin': location.protocol + '//' + location.host // CORSセキュリティ対策
+    },
     events: {
       'onStateChange': onCompanyVideoStateChange
     }
   });
 }
 
-// 会社説明動画の状態変化を監視
+// 会社説明動画が終わったとき
 function onCompanyVideoStateChange(event) {
-  // 動画が最後まで再生されたら（ENDED）
   if (event.data === YT.PlayerState.ENDED) {
-    const nextSection = document.getElementById('next-section');
-    if (nextSection) {
-      nextSection.style.display = 'block';
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    showSection('next-section');
   }
 }
 
 // 「事業部選択へ進む」ボタンをクリックした時
 function showDepartments() {
-  const deptSection = document.getElementById('department-section');
-  if (deptSection) {
-    deptSection.style.display = 'block';
-    deptSection.scrollIntoView({ behavior: 'smooth' });
-  }
+  showSection('department-section');
 }
 
-// カードをクリックした時に事業部動画を読み込んで再生する
+// 各事業部のカードをクリックした時
 function changeVideo(videoId) {
-  const videoSection = document.getElementById('department-video-section');
-  
-  // セクションを表示
-  if (videoSection) {
-    videoSection.style.display = 'block';
-    videoSection.scrollIntoView({ behavior: 'smooth' });
-  }
+  showSection('department-video-section');
 
-  // プレイヤーが未作成の場合は作成、作成済みの場合は動画を変更
   if (!departmentPlayer) {
+    // 初めて再生する場合はプレイヤーを生成
     departmentPlayer = new YT.Player('department-video-player', {
-      height: '360',
-      width: '640',
       videoId: videoId,
       playerVars: {
-        'autoplay': 1 // カード選択時に自動再生
+        'autoplay': 1,
+        'origin': location.protocol + '//' + location.host
       },
       events: {
         'onStateChange': onDepartmentVideoStateChange
       }
     });
   } else {
+    // すでに作成済みの場合は動画IDを差し替えて再生
     departmentPlayer.loadVideoById(videoId);
   }
 }
 
-// ★ ここがポイント：事業部動画が最後まで再生された時の処理
+// ★事業部動画が終わったとき：アンケートを表示する
 function onDepartmentVideoStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    const surveySection = document.getElementById('survey-section');
-    if (surveySection) {
-      surveySection.style.display = 'block'; // アンケートを表示
-      surveySection.scrollIntoView({ behavior: 'smooth' }); // アンケートへ自動スクロール
-    }
+    showSection('survey-section');
+  }
+}
+
+// 要素を表示して自動でスクロールする共通関数
+function showSection(elementId) {
+  const target = document.getElementById(elementId);
+  if (target) {
+    target.style.display = 'block';
+    target.scrollIntoView({ behavior: 'smooth' });
   }
 }
