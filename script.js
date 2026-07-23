@@ -13,7 +13,7 @@ function onYouTubeIframeAPIReady() {
   companyPlayer = new YT.Player('company-video-player', {
     height: '360',
     width: '640',
-    videoId: 'ここに会社説明の動画IDを入れる', // ※初期動画のIDを入れてください
+    videoId: 'a5O5oZILdeM', // ※初期動画のIDを入れてください
     events: {
       'onStateChange': onCompanyVideoStateChange
     }
