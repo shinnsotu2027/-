@@ -4,7 +4,7 @@ let departmentPlayer;
 // YouTube API の準備完了時に発火
 function onYouTubeIframeAPIReady() {
   companyPlayer = new YT.Player('company-video-player', {
-    videoId: 'a5O5oZILdeM', // ★会社説明のYouTube動画ID
+    videoId: '8fEBH-6tpIU', // ★会社説明のYouTube動画ID
     playerVars: {
       'origin': location.protocol + '//' + location.host // CORSセキュリティ対策
     },
