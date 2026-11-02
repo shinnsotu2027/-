@@ -1,173 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Human Academy 新卒説明会</title>
-  <link rel="stylesheet" href="style.css">
+
+  <title>Human Academy 新卒説明会｜URL変更のお知らせ</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="tesuto.css">
 </head>
 
 <body>
 
-  <!-- TOP -->
-  <section class="hero">
-    <h1>Human Academy<br>新卒説明会</h1>
+  <!-- ヘッダー -->
+  <header class="header">
+    <h1>Human Academy</h1>
+    <p>新卒採用</p>
+  </header>
+
+
+  <!-- メイン -->
+  <main>
+
+    <section class="notice-section">
+
+      <div class="notice-box">
+
+        <p class="notice-label">
+          新卒説明会
+        </p>
+
+        <h2>
+          URL変更のお知らせ
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="main-message">
+          11月より、説明会動画の<br>
+          URLが変更になりました。
+        </p>
+
+        <p class="sub-message">
+          再度マイナビよりエントリー<br>
+          お願いいたします。
+        </p>
+
+
+        <!-- 新しいURL -->
+        <a
+          href="https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?optNo=vO27fC&corpId=97994"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="new-url-button"
+        >
+          再エントリーはこちらから
+        </a>
+
+
+        <p class="note">
+        
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- フッター -->
+  <footer class="footer">
+
     <p>
-      まずは会社説明動画をご覧ください。<br>
-      視聴完了後、事業部選択へ進めます。
+      Human Academy 新卒採用
     </p>
-  </section>
 
+    <p class="copyright">
+      © Human Academy. All Rights Reserved.
+    </p>
 
-  <!-- 会社説明動画 -->
-  <section class="container">
-    <h2 class="section-title">会社説明動画</h2>
-
-    <div class="video-box">
-      <div class="iframe-wrapper">
-        <div id="company-video-player"></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 視聴完了（最初は隠す） -->
-  <section id="next-section" class="container">
-
-    <div class="next-box">
-      <h2>視聴ありがとうございました</h2>
-
-      <p>
-        下記より事業部選択へお進みください
-      </p>
-
-      <button onclick="showDepartments()">
-        事業部選択へ進む
-      </button>
-    </div>
-
-  </section>
-
-
-  <!-- 事業部選択（最初は隠す） -->
-  <section id="department-section" class="container">
-
-    <h2 class="section-title">
-      気になる事業部を選択してください
-    </h2>
-
-    <div class="department-grid">
-
-      <div
-        class="card"
-        onclick="changeVideo('Yds6IsEFXWM')"
-      >
-        学生教育
-      </div>
-
-      <div
-        class="card"
-        onclick="changeVideo('BVPtNpGsRY4')"
-      >
-        社会人教育
-      </div>
-
-      <div
-        class="card"
-        onclick="changeVideo('YwpzXrXpsW8')"
-      >
-        国際教育
-      </div>
-
-      <div
-        class="card all-card"
-        onclick="changeVideo('ciqSbqCitK4')"
-      >
-        全部の事業部を見る
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- 事業部動画（最初は隠す） -->
-  <section id="department-video-section" class="container">
-
-    <h2 class="section-title">
-      事業部紹介動画
-    </h2>
-
-    <div class="video-box">
-      <div class="iframe-wrapper">
-        <div id="department-video-player"></div>
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- アンケート（最初は隠す） -->
-  <section id="survey-section" class="container">
-
-    <div class="survey-box">
-
-      <h2>アンケート回答</h2>
-
-      <p class="survey-message">
-        説明会のご視聴ありがとうございました。<br>
-        下記ボタンよりアンケート回答へお進みください。
-      </p>
-
-
-      <!-- お問い合わせ -->
-      <div class="contact-info">
-
-        <h3>▽ご質問はこちらへ</h3>
-
-        <p>
-          <span>メールアドレス：</span><br>
-          <a href="mailto:humanacademy_recruit@athuman.com">
-            humanacademy_recruit@athuman.com
-          </a>
-        </p>
-
-        <p>
-          <span>新卒採用公式LINE：</span><br>
-          <a
-            href="https://lin.ee/uyI5g1kH"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://lin.ee/uyI5g1kH
-          </a>
-        </p>
-
-      </div>
-
-
-      <!-- Googleフォーム -->
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSc204XQuBdN0Csn6dvl4i9wOn5-xq3uDF-CGYsf2718t_RUng/viewform?usp=header"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="form-button"
-      >
-        アンケート回答へ進む
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- YouTube API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-
-  <!-- 自作JavaScript -->
-  <script src="script.js"></script>
+  </footer>
 
 </body>
-</html>
 
+</html>

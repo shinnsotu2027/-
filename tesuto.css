@@ -1,0 +1,299 @@
+/* =========================
+   全体
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+
+  background-color: #f5f8fc;
+  color: #333;
+
+  text-align: center;
+}
+
+
+/* =========================
+   ヘッダー
+========================= */
+
+.header {
+  background-color: #005bac;
+  color: #fff;
+
+  padding: 28px 20px;
+}
+
+.header h1 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.header p {
+  margin: 8px 0 0;
+
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================
+   メイン
+========================= */
+
+main {
+  min-height: calc(100vh - 180px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 20px;
+}
+
+
+/* =========================
+   お知らせエリア
+========================= */
+
+.notice-section {
+  width: 100%;
+  max-width: 700px;
+}
+
+
+/* =========================
+   お知らせボックス
+========================= */
+
+.notice-box {
+  background-color: #fff;
+
+  padding: 55px 40px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   ラベル
+========================= */
+
+.notice-label {
+  margin: 0 0 15px;
+
+  color: #005bac;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================
+   タイトル
+========================= */
+
+.notice-box h2 {
+  margin: 0;
+
+  color: #005bac;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+/* =========================
+   区切り線
+========================= */
+
+.line {
+  width: 60px;
+  height: 3px;
+
+  background-color: #ff6b00;
+
+  margin: 25px auto 30px;
+}
+
+
+/* =========================
+   メインメッセージ
+========================= */
+
+.main-message {
+  margin: 0 0 25px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  line-height: 1.8;
+}
+
+
+/* =========================
+   サブメッセージ
+========================= */
+
+.sub-message {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+
+  color: #555;
+}
+
+
+/* =========================
+   新しいURLボタン
+========================= */
+
+.new-url-button {
+  display: block;
+
+  width: 100%;
+  max-width: 380px;
+
+  margin: 35px auto 0;
+
+  padding: 17px 25px;
+
+  background-color: #ff6b00;
+
+  color: #fff;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+
+/* マウスを乗せたとき */
+
+.new-url-button:hover {
+  opacity: 0.8;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   注意書き
+========================= */
+
+.note {
+  margin: 20px 0 0;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   フッター
+========================= */
+
+.footer {
+  padding: 25px 20px;
+
+  background-color: #333;
+
+  color: #fff;
+
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer .copyright {
+  font-size: 11px;
+
+  opacity: 0.7;
+}
+
+
+/* =========================
+   スマートフォン
+========================= */
+
+@media (max-width: 600px) {
+
+  .header {
+    padding: 22px 15px;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  main {
+    padding: 35px 15px;
+
+    min-height: calc(100vh - 150px);
+  }
+
+  .notice-box {
+    padding: 40px 20px;
+
+    border-radius: 12px;
+  }
+
+  .notice-label {
+    font-size: 13px;
+  }
+
+  .notice-box h2 {
+    font-size: 25px;
+  }
+
+  .main-message {
+    font-size: 17px;
+  }
+
+  .sub-message {
+    font-size: 14px;
+  }
+
+  .new-url-button {
+    font-size: 15px;
+
+    padding: 15px 20px;
+  }
+
+}
